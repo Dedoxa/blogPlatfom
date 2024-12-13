@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  height: 80px;
+  padding: 0 22px 0 22px;
+  font-size: 18px;
+}
+
+.headerButtonsChain {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.headerGreenButton {
+  padding: 6px 10px;
+  color: #52c41a;
+  border-radius: 5px;
+  border: 1px solid #52c41a;
+}
+
+.headerLogOutButton {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+}

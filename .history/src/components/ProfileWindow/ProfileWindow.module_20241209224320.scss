@@ -1,0 +1,68 @@
+h2 {
+  margin: 0 0 30px 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+p {
+  margin: 0 0 10px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+
+.agreementText {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contentBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  padding: 48px 33px ;
+  font-size: 18px;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+
+  .textInput {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    min-height: 28px;
+    width: 308px;
+    padding: 6px;
+    border-radius: 4px;
+    border-color: #D9D9D9;
+    border-style: solid;
+  
+    ::placeholder {
+      color: #BFBFBF;
+    }
+  }
+
+  .agreementBox {
+    padding-top: 10px;
+    border-top: 1px solid #D9D9D9;
+  }
+
+  .submitButton {
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    height: 40px;
+    background-color: #1890FF;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+  }
+}

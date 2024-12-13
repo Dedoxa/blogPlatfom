@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  height: 80px;
+  padding: 0 22px 0 22px;
+  font-size: 18px;
+}
+
+.headerButtonsChain {
+  display: flex;
+  gap: 19px;
+}
+
+.headerGreenButton {
+  color: #52c41a;
+  border-radius: 3px;
+  border: 1px solid #52c41a;
+}
