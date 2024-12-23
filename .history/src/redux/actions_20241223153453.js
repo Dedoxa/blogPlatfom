@@ -1,0 +1,1 @@
+export const CHANGE_PASSWORD_IN_INPUT = { type: 'CHANGE_PASSWORD_IN_INPUT' };

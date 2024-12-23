@@ -1,9 +1,32 @@
 import { Checkbox } from 'antd';
+import { useSelector } from 'react-redux';
+
+import store from '../../redux/store';
 
 import classes from './ProfileWindow.module.scss';
 
 const ProfileWindow = () => {
-  const FORM_TYPE = 2;
+  const FORM_TYPE = 0;
+
+  const PasswordInInput = useSelector((state) => state.PasswordInInput);
+  const passwordClasses = [classes.textInput];
+  let showPasswordWarning = 0;
+  if (!passwordClasses.includes(classes.textRedInput) && PasswordInInput.length > 0 && PasswordInInput.length < 6) {
+    passwordClasses.push(classes.textRedInput);
+    showPasswordWarning = 1;
+  } else {
+    passwordClasses.filter((element) => element === classes.textInput);
+  }
+
+  const PasswordRepetitionInInput = useSelector((state) => state.PasswordRepetitionInInput);
+  const PasswordRepetitionInInputClasses = [classes.textInput];
+  let showPasswordRepetitionWarning = 0;
+  if (PasswordRepetitionInInput !== PasswordInInput) {
+    PasswordRepetitionInInputClasses.push(classes.textRedInput);
+    showPasswordRepetitionWarning = 1;
+  } else {
+    PasswordRepetitionInInputClasses.filter((element) => element === classes.textInput);
+  }
 
   return (
     <div className={classes.contentBox}>
@@ -21,17 +44,33 @@ const ProfileWindow = () => {
             </label>
             <label htmlFor="password">
               <p>Password</p>
-              <input id="password" className={classes.textInput} type="password" placeholder="Password" required />
+              <input
+                id="password"
+                className={passwordClasses.join(' ')}
+                type="password"
+                placeholder="Password"
+                minLength={6}
+                onChange={(value) => store.dispatch({ type: 'CHANGE_PASSWORD_IN_INPUT', value: value.target.value })}
+                required
+              />
+              {showPasswordWarning === 1 && (
+                <p className={classes.inputWarning}>Your password needs to be at least 6 characters.</p>
+              )}
             </label>
             <label htmlFor="passwordRepeat">
               <p>Repeat Password</p>
               <input
                 id="passwordRepeat"
-                className={classes.textInput}
+                className={PasswordRepetitionInInputClasses.join(' ')}
                 type="password"
                 placeholder="Password"
+                minLength={6}
+                onChange={(value) =>
+                  store.dispatch({ type: 'CHANGE_PASSWORD_REPETITION_IN_INPUT', value: value.target.value })
+                }
                 required
               />
+              {showPasswordRepetitionWarning === 1 && <p className={classes.inputWarning}>Passwords must match</p>}
             </label>
             <label className={classes.agreementBox} htmlFor="agreement">
               <Checkbox style={{ marginRight: '10px' }} id="agreement" required />
@@ -71,7 +110,14 @@ const ProfileWindow = () => {
             </label>
             <label htmlFor="password">
               <p>New password</p>
-              <input id="password" className={classes.textInput} type="password" placeholder="Password" required />
+              <input
+                id="password"
+                className={classes.textInput}
+                type="password"
+                placeholder="Password"
+                minLength={6}
+                required
+              />
             </label>
             <label htmlFor="avatarImage">
               <p>Avatar image (url)</p>
