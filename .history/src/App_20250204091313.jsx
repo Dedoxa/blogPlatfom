@@ -21,6 +21,7 @@ function App() {
 
   useEffect(() => {
     store.dispatch(actions.SET_ARTICLES_DATA(result?.articles));
+    console.log('result: ', result);
   }, [result, currentPage]);
 
   return (
@@ -36,8 +37,8 @@ function App() {
               <Route path="/articles" element={<PostsList />}></Route>
               <Route path="/articles/:slug" element={<FullArticle />}></Route>
               <Route path="/articleForm" element={<ArticleForm />}></Route>
-              <Route path="/sign-in" element={<ProfileWindow />}></Route>
-              <Route path="/sign-up" element={<ProfileWindow />}></Route>
+              <Route path="/authorisation" element={<ProfileWindow />}></Route>
+              <Route path="/authorisation" element={<ProfileWindow />}></Route>
               <Route path="/profile" element={<ProfileWindow />}></Route>
             </Routes>
           )}

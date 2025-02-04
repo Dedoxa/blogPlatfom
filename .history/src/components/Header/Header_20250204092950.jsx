@@ -7,13 +7,11 @@ const Header = () => {
 
   return (
     <div className={classes.header}>
-      <Link to={'/articles'} className={classes.defaultStyle}>
-        Realworld Blog
-      </Link>
+      <span>Realworld Blog</span>
       <div className={classes.headerButtonsChain}>
         {AUTHORIZED === 0 && (
           <>
-            <Link to={'/sign-in'} className={classes.defaultStyle}>
+            <Link to={'/sign-in'} style={{ textDecoration: 'none', color: 'black' }}>
               Sign In
             </Link>
             <Link to={'/sign-up'} className={classes.headerGreenButton}>

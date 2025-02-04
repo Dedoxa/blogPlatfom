@@ -7,9 +7,7 @@ const Header = () => {
 
   return (
     <div className={classes.header}>
-      <Link to={'/articles'} className={classes.defaultStyle}>
-        Realworld Blog
-      </Link>
+      <Link to={'/articles'}>Realworld Blog</Link>
       <div className={classes.headerButtonsChain}>
         {AUTHORIZED === 0 && (
           <>

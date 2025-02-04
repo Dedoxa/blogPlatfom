@@ -1,5 +1,4 @@
 import { Checkbox } from 'antd';
-import { useLocation } from 'react-router';
 import { useSelector } from 'react-redux';
 
 import * as actions from '../../redux/actions';
@@ -8,8 +7,7 @@ import store from '../../redux/store';
 import classes from './ProfileWindow.module.scss';
 
 const ProfileWindow = () => {
-  const { pathname } = useLocation();
-  const FORM_TYPE = pathname;
+  const FORM_TYPE = 0;
 
   const PasswordInInput = useSelector((state) => state.PasswordInInput);
   const passwordClasses = [classes.textInput];
@@ -33,7 +31,7 @@ const ProfileWindow = () => {
 
   return (
     <div className={classes.contentBox}>
-      {FORM_TYPE === '/sign-up' && (
+      {FORM_TYPE === 0 && (
         <>
           <h2>Create new account</h2>
           <form action="#" method="get">
@@ -84,7 +82,7 @@ const ProfileWindow = () => {
           </form>
         </>
       )}
-      {FORM_TYPE === '/sign-in' && (
+      {FORM_TYPE === 1 && (
         <>
           <h2>Sign In</h2>
           <form action="#" method="get">
@@ -100,7 +98,7 @@ const ProfileWindow = () => {
           </form>
         </>
       )}
-      {FORM_TYPE === '/edit' && (
+      {FORM_TYPE === 2 && (
         <>
           <h2>Edit Profile</h2>
           <form action="#" method="get">

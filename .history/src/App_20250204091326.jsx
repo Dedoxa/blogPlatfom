@@ -21,6 +21,7 @@ function App() {
 
   useEffect(() => {
     store.dispatch(actions.SET_ARTICLES_DATA(result?.articles));
+    console.log('result: ', result);
   }, [result, currentPage]);
 
   return (

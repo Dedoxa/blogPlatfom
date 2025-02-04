@@ -8,7 +8,9 @@ import store from '../../redux/store';
 import classes from './ProfileWindow.module.scss';
 
 const ProfileWindow = () => {
+  // const { form_type } = useParams();
   const { pathname } = useLocation();
+  console.log(pathname);
   const FORM_TYPE = pathname;
 
   const PasswordInInput = useSelector((state) => state.PasswordInInput);

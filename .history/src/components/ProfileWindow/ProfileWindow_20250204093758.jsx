@@ -8,7 +8,9 @@ import store from '../../redux/store';
 import classes from './ProfileWindow.module.scss';
 
 const ProfileWindow = () => {
+  // const { form_type } = useParams();
   const { pathname } = useLocation();
+  console.log(pathname);
   const FORM_TYPE = pathname;
 
   const PasswordInInput = useSelector((state) => state.PasswordInInput);
@@ -33,7 +35,7 @@ const ProfileWindow = () => {
 
   return (
     <div className={classes.contentBox}>
-      {FORM_TYPE === '/sign-up' && (
+      {FORM_TYPE === '/sign_up' && (
         <>
           <h2>Create new account</h2>
           <form action="#" method="get">
@@ -84,7 +86,7 @@ const ProfileWindow = () => {
           </form>
         </>
       )}
-      {FORM_TYPE === '/sign-in' && (
+      {FORM_TYPE === '/sign_in' && (
         <>
           <h2>Sign In</h2>
           <form action="#" method="get">
