@@ -8,11 +8,9 @@
   padding: 0 22px 0 22px;
   font-size: 18px;
 
-  a {
+  .defaultStyle,
+  .defaultStyle > a{
     text-decoration: none;
-  }
-  
-  .defaultStyle{
     color: black;
   }
 }

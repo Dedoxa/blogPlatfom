@@ -26,8 +26,8 @@ const Header = () => {
             <Link to={'/articleForm'} className={classes.headerGreenButton}>
               Create article
             </Link>
-            <Link to={'/profile'} style={{ display: 'flex', alignItems: 'center', gap: '13px' }}>
               <span className={classes.defaultStyle}>John Doe</span>
+            <Link to={'/profile'} style={{ display: 'flex', alignItems: 'center', gap: '13px' }}>
               <img src="../../../img/John Doe.png" height={46} width={46} alt="author Image" />
             </Link>
             <span className={classes.headerLogOutButton}>Log Out</span>

@@ -27,7 +27,7 @@ const Header = () => {
               Create article
             </Link>
             <Link to={'/profile'} style={{ display: 'flex', alignItems: 'center', gap: '13px' }}>
-              <span className={classes.defaultStyle}>John Doe</span>
+              <span>John Doe</span>
               <img src="../../../img/John Doe.png" height={46} width={46} alt="author Image" />
             </Link>
             <span className={classes.headerLogOutButton}>Log Out</span>
