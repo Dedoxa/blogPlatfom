@@ -10,7 +10,10 @@ import classes from './ProfileWindow.module.scss';
 
 const ProfileWindow = () => {
   const { pathname } = useLocation();
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+  } = useForm();
   const FORM_TYPE = pathname;
 
   const loginInInput = useSelector((state) => state.loginInInput);
@@ -57,20 +60,12 @@ const ProfileWindow = () => {
     passwordRepetitionInInputClasses.filter((element) => element === classes.textInput);
   }
 
-  let warningsSumm = null;
-  switch (FORM_TYPE) {
-    case '/sign-up':
-      warningsSumm =
-        showShortLoginWarning +
-        showLongLoginWarning +
-        showShortPasswordWarning +
-        showLongPasswordWarning +
-        showPasswordRepetitionWarning;
-      break;
-    case '/profile':
-      warningsSumm = showShortLoginWarning + showLongLoginWarning + showShortPasswordWarning + showLongPasswordWarning;
-      break;
-  }
+  const warningsSumm =
+    showShortLoginWarning +
+    showLongLoginWarning +
+    showShortPasswordWarning +
+    showLongPasswordWarning +
+    showPasswordRepetitionWarning;
 
   return (
     <div className={classes.contentBox}>

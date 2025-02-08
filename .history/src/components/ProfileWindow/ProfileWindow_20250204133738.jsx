@@ -56,21 +56,24 @@ const ProfileWindow = () => {
   } else {
     passwordRepetitionInInputClasses.filter((element) => element === classes.textInput);
   }
+}
 
-  let warningsSumm = null;
-  switch (FORM_TYPE) {
-    case '/sign-up':
-      warningsSumm =
-        showShortLoginWarning +
-        showLongLoginWarning +
-        showShortPasswordWarning +
-        showLongPasswordWarning +
-        showPasswordRepetitionWarning;
-      break;
-    case '/profile':
-      warningsSumm = showShortLoginWarning + showLongLoginWarning + showShortPasswordWarning + showLongPasswordWarning;
-      break;
-  }
+const imageURLInInput = useSelector((state) => state.imageURLInInput);
+const imageURLInInputInInputClasses = [classes.textInput];
+let showImageURLWarning = 0;
+if (passwordRepetitionInInput !== passwordInInput) {
+  passwordRepetitionInInputClasses.push(classes.textRedInput);
+  showPasswordRepetitionWarning = 1;
+} else {
+  passwordRepetitionInInputClasses.filter((element) => element === classes.textInput);
+}
+
+  const warningsSumm =
+    showShortLoginWarning +
+    showLongLoginWarning +
+    showShortPasswordWarning +
+    showLongPasswordWarning +
+    showPasswordRepetitionWarning;
 
   return (
     <div className={classes.contentBox}>
@@ -91,8 +94,6 @@ const ProfileWindow = () => {
                 className={loginClasses.join(' ')}
                 type="text"
                 placeholder="Username"
-                minLength={3}
-                maxLength={20}
                 onChange={(value) => store.dispatch(actions.CHANGE_LOGIN_IN_INPUT(value.target.value))}
                 required
               />
@@ -121,7 +122,6 @@ const ProfileWindow = () => {
                 type="password"
                 placeholder="Password"
                 minLength={6}
-                maxLength={40}
                 onChange={(value) => store.dispatch(actions.CHANGE_PASSWORD_IN_INPUT(value.target.value))}
                 required
               />
@@ -140,7 +140,6 @@ const ProfileWindow = () => {
                 type="password"
                 placeholder="Password"
                 minLength={6}
-                maxLength={40}
                 onChange={(value) => store.dispatch(actions.CHANGE_PASSWORD_REPETITION_IN_INPUT(value.target.value))}
                 required
               />
@@ -151,9 +150,7 @@ const ProfileWindow = () => {
               <span className={classes.agreementText}>I agree to the processing of my personal information</span>
             </label>
             {warningsSumm <= 0 && <input className={classes.submitButton} type="submit" value={'Create'} />}
-            {warningsSumm > 0 && (
-              <input className={classes.submitDisabledButton} type="submit" value={'Create'} disabled />
-            )}
+            {warningsSumm > 0 && <input className={classes.submitButton} type="submit" value={'Create'} disabled />}
           </form>
         </>
       )}
@@ -173,11 +170,9 @@ const ProfileWindow = () => {
                 {...register('username')}
                 className={loginClasses.join(' ')}
                 type="text"
-                required
                 placeholder="Username"
-                minLength={3}
-                maxLength={20}
                 onChange={(value) => store.dispatch(actions.CHANGE_LOGIN_IN_INPUT(value.target.value))}
+                required
               />
               {showShortLoginWarning === 1 && (
                 <p className={classes.inputWarning}>Your login needs to be at least 3 characters.</p>
@@ -192,8 +187,8 @@ const ProfileWindow = () => {
                 {...register('email')}
                 className={classes.textInput}
                 type="email"
-                required
                 placeholder="Email address"
+                required
               />
             </label>
             <label htmlFor="password">
@@ -202,11 +197,10 @@ const ProfileWindow = () => {
                 {...register('password')}
                 className={passwordClasses.join(' ')}
                 type="password"
-                required
                 placeholder="Password"
                 minLength={6}
-                maxLength={40}
                 onChange={(value) => store.dispatch(actions.CHANGE_PASSWORD_IN_INPUT(value.target.value))}
+                required
               />
               {showShortPasswordWarning === 1 && (
                 <p className={classes.inputWarning}>Your password needs to be at least 6 characters.</p>
@@ -221,14 +215,12 @@ const ProfileWindow = () => {
                 {...register('avatarImage')}
                 className={classes.textInput}
                 type="url"
-                required
                 placeholder="Avatar image"
+                required
               />
             </label>
             {warningsSumm <= 0 && <input className={classes.submitButton} type="submit" value={'Save'} />}
-            {warningsSumm > 0 && (
-              <input className={classes.submitDisabledButton} type="submit" value={'Save'} disabled />
-            )}
+            {warningsSumm > 0 && <input className={classes.submitButton} type="submit" value={'Save'} disabled />}
           </form>
         </>
       )}

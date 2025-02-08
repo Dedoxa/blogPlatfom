@@ -58,6 +58,7 @@ const ProfileWindow = () => {
   }
 
   let warningsSumm = null;
+
   switch (FORM_TYPE) {
     case '/sign-up':
       warningsSumm =

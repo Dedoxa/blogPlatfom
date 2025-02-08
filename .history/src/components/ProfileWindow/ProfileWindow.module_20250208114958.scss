@@ -80,14 +80,14 @@ form {
     border: none;
     border-radius: 4px;
     padding: 8px 16px;
-  }
+    
+    .submitButton{
+      background-color: #1890ff;
+    }
 
-  .submitButton {
-    background-color: #1890ff;
-  }
-
-  .submitDisabledButton {
-    background-color: #b0b0b0;
+    .submitDisabledButton {
+      background-color: #b0b0b0;
+    }
   }
 
   .signInBox {

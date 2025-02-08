@@ -11,7 +11,7 @@ export const setArticlesData = (state = [], action) => {
 
 export const changeLoginInInput = (state = '', action) => {
   switch (action.type) {
-    case 'CHANGE_LOGIN_IN_INPUT':
+    case 'CHANGE_PASSWORD_IN_INPUT':
       return action.value;
     default:
       return state;

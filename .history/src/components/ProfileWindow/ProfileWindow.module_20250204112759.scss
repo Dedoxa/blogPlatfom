@@ -35,10 +35,6 @@ form {
   border-radius: 5px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
 
-  input:invalid:not(:placeholder-shown) {
-    border-color: #f5222d;
-  }
-
   .textInput {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -72,7 +68,7 @@ form {
   }
 
   .submitButton,
-  .submitDisabledButton {
+  .disabledSubmitButton {
     font-family: 'Roboto', sans-serif;
     color: #ffffff;
     font-size: 16px;
@@ -86,8 +82,8 @@ form {
     background-color: #1890ff;
   }
 
-  .submitDisabledButton {
-    background-color: #b0b0b0;
+  .disabledSubmitButton {
+    background-color: #838383;
   }
 
   .signInBox {

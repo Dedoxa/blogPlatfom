@@ -10,7 +10,11 @@ import classes from './ProfileWindow.module.scss';
 
 const ProfileWindow = () => {
   const { pathname } = useLocation();
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const FORM_TYPE = pathname;
 
   const loginInInput = useSelector((state) => state.loginInInput);
@@ -57,20 +61,12 @@ const ProfileWindow = () => {
     passwordRepetitionInInputClasses.filter((element) => element === classes.textInput);
   }
 
-  let warningsSumm = null;
-  switch (FORM_TYPE) {
-    case '/sign-up':
-      warningsSumm =
-        showShortLoginWarning +
-        showLongLoginWarning +
-        showShortPasswordWarning +
-        showLongPasswordWarning +
-        showPasswordRepetitionWarning;
-      break;
-    case '/profile':
-      warningsSumm = showShortLoginWarning + showLongLoginWarning + showShortPasswordWarning + showLongPasswordWarning;
-      break;
-  }
+  const warningsSumm =
+    showShortLoginWarning +
+    showLongLoginWarning +
+    showShortPasswordWarning +
+    showLongPasswordWarning +
+    showPasswordRepetitionWarning;
 
   return (
     <div className={classes.contentBox}>
@@ -150,8 +146,10 @@ const ProfileWindow = () => {
               <Checkbox style={{ marginRight: '10px' }} id="agreement" required />
               <span className={classes.agreementText}>I agree to the processing of my personal information</span>
             </label>
-            {warningsSumm <= 0 && <input className={classes.submitButton} type="submit" value={'Create'} />}
-            {warningsSumm > 0 && (
+            {warningsSumm <= 0 && loginInInput.length > 0 && passwordInInput.length > 0 && passwordRepetitionInInput.length > 0 && (
+              <input className={classes.submitButton} type="submit" value={'Create'} />
+            )}
+            {(warningsSumm > 0 || loginInInput.length <= 0 && passwordInInput.length <= 0 && passwordRepetitionInInput.length <= 0) && (
               <input className={classes.submitDisabledButton} type="submit" value={'Create'} disabled />
             )}
           </form>

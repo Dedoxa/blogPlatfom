@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import classes from './Header.module.scss';
 
 const Header = () => {
-  const AUTHORIZED = 0;
+  const AUTHORIZED = 1;
 
   return (
     <div className={classes.header}>
