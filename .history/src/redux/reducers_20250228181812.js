@@ -1,0 +1,28 @@
+// import toExcluded from './supportFunctions';
+
+export const setArticlesData = (state = [], action) => {
+  switch (action.type) {
+    case 'SET_ARTICLES_DATA':
+      return action.articlesArray;
+    default:
+      return state;
+  }
+};
+
+export const setAmountOfArticles = (state = 0, action) => {
+  switch (action.type) {
+    case 'SET_ARTICLES_AMOUNT':
+      return action.amountOfArticles;
+    default:
+      return 0;
+  }
+};
+
+export const setNewCurrentPage = (state = 1, action) => {
+  switch (action.type) {
+    case 'SET_NEW_CURRENT_PAGE':
+      return action.newPage;
+    default:
+      return state;
+  }
+};
