@@ -2,7 +2,14 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import { realBlogPlatform } from '../AppAPI';
 
-import { setArticlesData, setAmountOfArticles, setNewCurrentPage, setUserData } from './reducers';
+import {
+  setArticlesData,
+  setAmountOfArticles,
+  setNewCurrentPage,
+  setUserData,
+  updateTagInputs,
+  setModalVisibility,
+} from './reducers';
 
 const store = configureStore({
   reducer: {
@@ -11,6 +18,8 @@ const store = configureStore({
     amountOfArticles: setAmountOfArticles,
     currentPage: setNewCurrentPage,
     logInUserData: setUserData,
+    tagInputs: updateTagInputs,
+    modalIsVisible: setModalVisibility,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(realBlogPlatform.middleware),
 });

@@ -34,12 +34,14 @@ const Header = () => {
         )}
         {userToken && (
           <>
-            <Link to={'/articleForm'} className={classes.headerGreenButton}>
+            <Link to={'/new-article'} className={classes.headerGreenButton}>
               Create article
             </Link>
             <Link to={'/profile'} style={{ display: 'flex', alignItems: 'center', gap: '13px' }}>
               <span className={classes.defaultStyle}>{userName}</span>
-              <img src={image} height={46} width={46} alt="author Image" />
+              <div className={classes.imgCrop}>
+                <img src={image} height={46} width={46} alt="author Image" />
+              </div>
             </Link>
             <span
               className={classes.headerLogOutButton}
