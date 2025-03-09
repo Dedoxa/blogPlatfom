@@ -89,7 +89,7 @@ const FullArticle = () => {
               Delete
             </span>
             {modalIsVisible && <DeleteArticleModalWindow />}
-            <Link to={`${pathname}/edit`} className={classes.fullArticleGreenButton} state={article}>
+            <Link to={`${pathname}/edit`} className={classes.fullArticleGreenButton}>
               Edit
             </Link>
           </div>

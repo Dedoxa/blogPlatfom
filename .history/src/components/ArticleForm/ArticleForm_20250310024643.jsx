@@ -3,7 +3,7 @@ import { useLocation, useParams } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 
-import { useCreateNewArticleMutation, useUpdateArticleMutation } from '../../AppAPI';
+import { useGetParticularArticleQuery, useCreateNewArticleMutation, useUpdateArticleMutation } from '../../AppAPI';
 import store from '../../redux/store.js';
 import * as actions from '../../redux/actions.js';
 
