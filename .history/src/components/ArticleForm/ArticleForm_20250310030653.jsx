@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useLocation, useParams } from 'react-router';
+import { useLocation, useParams, useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 
@@ -26,6 +26,8 @@ const ArticleForm = () => {
   const location = useLocation();
   const article = location.state;
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (createArticleResult?.isSuccess && pathname === '/new-article') {
       setTimeout(() => {
@@ -37,7 +39,7 @@ const ArticleForm = () => {
       setTimeout(() => {
         updateArticleResult.reset();
       }, 3500);
-      reset();
+      navigate(`/articles/${slug}`);
     }
     if (pathname === '/new-article') {
       store.dispatch(actions.CLEAR_TAG_INPUT);

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useLocation, useParams } from 'react-router';
+import { useLocation, useParams, useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 
@@ -37,7 +37,7 @@ const ArticleForm = () => {
       setTimeout(() => {
         updateArticleResult.reset();
       }, 3500);
-      reset();
+
     }
     if (pathname === '/new-article') {
       store.dispatch(actions.CLEAR_TAG_INPUT);

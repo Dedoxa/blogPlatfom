@@ -37,7 +37,7 @@ const ArticleForm = () => {
       setTimeout(() => {
         updateArticleResult.reset();
       }, 3500);
-      reset();
+      
     }
     if (pathname === '/new-article') {
       store.dispatch(actions.CLEAR_TAG_INPUT);

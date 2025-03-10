@@ -39,10 +39,7 @@ const ArticleForm = () => {
       }, 3500);
       reset();
     }
-    if (pathname === '/new-article') {
-      store.dispatch(actions.CLEAR_TAG_INPUT);
-      reset();
-    }
+    if (pathname === '/new-article') store.dispatch(actions.CLEAR_TAG_INPUT);
     if (article?.tagList) {
       store.dispatch(actions.CLEAR_TAG_INPUT);
       for (let i = 0; i < article?.tagList.length; i++) {

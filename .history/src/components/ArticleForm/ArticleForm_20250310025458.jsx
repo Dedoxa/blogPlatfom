@@ -24,7 +24,9 @@ const ArticleForm = () => {
 
   const tagInputs = useSelector((state) => state.tagInputs);
   const location = useLocation();
-  const article = location.state;
+  const article = pathname === '/new-article' ? undefined : location.state;
+  console.log(pathname);
+  console.log(article);
 
   useEffect(() => {
     if (createArticleResult?.isSuccess && pathname === '/new-article') {
@@ -37,10 +39,6 @@ const ArticleForm = () => {
       setTimeout(() => {
         updateArticleResult.reset();
       }, 3500);
-      reset();
-    }
-    if (pathname === '/new-article') {
-      store.dispatch(actions.CLEAR_TAG_INPUT);
       reset();
     }
     if (article?.tagList) {

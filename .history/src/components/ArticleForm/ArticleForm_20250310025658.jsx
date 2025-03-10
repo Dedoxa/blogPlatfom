@@ -39,10 +39,6 @@ const ArticleForm = () => {
       }, 3500);
       reset();
     }
-    if (pathname === '/new-article') {
-      store.dispatch(actions.CLEAR_TAG_INPUT);
-      reset();
-    }
     if (article?.tagList) {
       store.dispatch(actions.CLEAR_TAG_INPUT);
       for (let i = 0; i < article?.tagList.length; i++) {
@@ -86,7 +82,7 @@ const ArticleForm = () => {
           <input
             {...register('title', {
               required: 'Fill in the "Title" field.',
-              value: article?.title,
+              value: pathname === '/new-article' ? undefined : article?.title,
             })}
             type="text"
             placeholder="Title"
