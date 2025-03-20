@@ -23,7 +23,7 @@ function App() {
     data: result,
     error: fetchingError,
     isLoading: loadingArticles,
-  } = useGetPostsQuery({ token: userToken, currentPage: currentPage });
+  } = useGetPostsQuery(currentPage, { refetchOnMountOrArgChange: true });
 
   useEffect(() => {
     store.dispatch(actions.SET_ARTICLES_DATA(result?.articles));
