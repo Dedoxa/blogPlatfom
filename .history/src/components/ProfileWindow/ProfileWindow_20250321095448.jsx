@@ -114,9 +114,11 @@ const ProfileWindow = () => {
   const submitButtonClasses = [classes.submitButton];
   if (!submitButtonClasses.includes(classes.submitDisabledButton) && (isRegistring || isLoggingIn || isUpdatingUser)) {
     submitButtonClasses.push(classes.submitDisabledButton);
+    console.log('disabled buttons');
   }
   if (submitButtonClasses.includes(classes.submitDisabledButton) && !isRegistring && !isLoggingIn && !isUpdatingUser) {
     submitButtonClasses.pop();
+    console.log('enabled buttons');
   }
 
   return (

@@ -114,10 +114,15 @@ const ProfileWindow = () => {
   const submitButtonClasses = [classes.submitButton];
   if (!submitButtonClasses.includes(classes.submitDisabledButton) && (isRegistring || isLoggingIn || isUpdatingUser)) {
     submitButtonClasses.push(classes.submitDisabledButton);
+    console.log('disabled buttons');
   }
   if (submitButtonClasses.includes(classes.submitDisabledButton) && !isRegistring && !isLoggingIn && !isUpdatingUser) {
     submitButtonClasses.pop();
+    console.log('enabled buttons');
   }
+  // console.log(isRegistring, isLoggingIn, isUpdatingUser);
+  console.log(submitButtonClasses);
+  console.log('isDisabled: ', isDisabled);
 
   return (
     <div className={classes.contentBox}>
@@ -325,7 +330,7 @@ const ProfileWindow = () => {
               />
               <p className={classes.inputWarning}>{errors.image?.message}</p>
             </label>
-            <input className={submitButtonClasses.join(' ')} type="submit" value={'Save'} disabled={isDisabled} />
+            <input className={classes.submitButton} type="submit" value={'Save'} />
           </form>
         </>
       )}
@@ -381,7 +386,7 @@ const ProfileWindow = () => {
                 </p>
               )}
             </label>
-            <input className={submitButtonClasses.join(' ')} type="submit" value={'Login'} disabled={isDisabled} />
+            <input className={classes.submitButton} type="submit" value={'Login'} />
           </form>
           <p className={classes.questionText} style={{ marginTop: '10px' }}>
             {`Don't have an account?`} <Link to={'/sign-up'}>Sign up</Link>.

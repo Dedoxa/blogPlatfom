@@ -25,7 +25,7 @@ const ArticleForm = () => {
   const isCreating = createArticleResult.isLoading;
 
   const [updateArticle, updateArticleResult] = useUpdateArticleMutation();
-  const isUpdatingArticle = updateArticleResult.isLoading;
+  const isUpdatingArticle = createArticleResult.isLoading;
 
   const tagInputs = useSelector((state) => state.tagInputs);
   const location = useLocation();

@@ -22,12 +22,13 @@ const ProfileWindow = () => {
   const isRegistring = registerResult.isLoading;
 
   const [logInUser, logInResult] = useLogInUserMutation();
-  const isLoggingIn = logInResult.isLoading;
+  const isLoggingIn = logInResult.isLodaing;
 
   const [updateUser, updateResult] = useUpdateUserMutation();
   const isUpdatingUser = updateResult.isLoading;
 
   const navigate = useNavigate();
+  console.log(isRegistring, logInResult, isUpdatingUser);
 
   useEffect(() => {
     if (registerResult?.isSuccess === true && pathname === '/sign-up') {
@@ -325,7 +326,7 @@ const ProfileWindow = () => {
               />
               <p className={classes.inputWarning}>{errors.image?.message}</p>
             </label>
-            <input className={submitButtonClasses.join(' ')} type="submit" value={'Save'} disabled={isDisabled} />
+            <input className={classes.submitButton} type="submit" value={'Save'} />
           </form>
         </>
       )}
@@ -381,7 +382,7 @@ const ProfileWindow = () => {
                 </p>
               )}
             </label>
-            <input className={submitButtonClasses.join(' ')} type="submit" value={'Login'} disabled={isDisabled} />
+            <input className={classes.submitButton} type="submit" value={'Login'} />
           </form>
           <p className={classes.questionText} style={{ marginTop: '10px' }}>
             {`Don't have an account?`} <Link to={'/sign-up'}>Sign up</Link>.

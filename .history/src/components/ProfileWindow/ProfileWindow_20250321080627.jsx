@@ -19,13 +19,8 @@ const ProfileWindow = () => {
   } = useForm({ shouldUnregister: true });
 
   const [registerUser, registerResult] = useRegisterUserMutation();
-  const isRegistring = registerResult.isLoading;
-
   const [logInUser, logInResult] = useLogInUserMutation();
-  const isLoggingIn = logInResult.isLoading;
-
   const [updateUser, updateResult] = useUpdateUserMutation();
-  const isUpdatingUser = updateResult.isLoading;
 
   const navigate = useNavigate();
 
@@ -102,26 +97,8 @@ const ProfileWindow = () => {
     passwordRepetitionInInputClasses.pop();
   }
 
-  const imageClasses = [classes.textInput];
-  if (!imageClasses.includes(classes.textRedInput) && errors.image?.message) {
-    imageClasses.push(classes.textRedInput);
-  }
-  if (imageClasses.includes(classes.textRedInput) && !errors.image?.message) {
-    imageClasses.pop();
-  }
-
-  const isDisabled = isRegistring || isLoggingIn || isUpdatingUser ? true : false;
-  const submitButtonClasses = [classes.submitButton];
-  if (!submitButtonClasses.includes(classes.submitDisabledButton) && (isRegistring || isLoggingIn || isUpdatingUser)) {
-    submitButtonClasses.push(classes.submitDisabledButton);
-  }
-  if (submitButtonClasses.includes(classes.submitDisabledButton) && !isRegistring && !isLoggingIn && !isUpdatingUser) {
-    submitButtonClasses.pop();
-  }
-
   return (
     <div className={classes.contentBox}>
-      <h1>{isLoggingIn} request</h1>
       {FORM_TYPE === '/sign-up' && (
         <>
           <h2>Create new account</h2>
@@ -226,7 +203,8 @@ const ProfileWindow = () => {
               </div>
               <p className={classes.inputWarning}>{errors.agreementToPPI?.message}</p>
             </label>
-            <input className={submitButtonClasses.join(' ')} type="submit" value={'Create'} disabled={isDisabled} />
+            <input className={classes.submitButton} type="submit" value={'Create'} disabled={true} />
+            <input className={classes.submitDisabledButton} type="submit" value={'Create'} disabled />
           </form>
           <p className={classes.questionText} style={{ marginTop: '10px' }}>
             Already have an account? <Link to={'/sign-in'}>Sign in</Link>.
@@ -320,12 +298,12 @@ const ProfileWindow = () => {
                     message: 'Invalid url.',
                   },
                 })}
-                className={imageClasses.join(' ')}
+                className={classes.textInput}
                 placeholder="Avatar image"
               />
               <p className={classes.inputWarning}>{errors.image?.message}</p>
             </label>
-            <input className={submitButtonClasses.join(' ')} type="submit" value={'Save'} disabled={isDisabled} />
+            <input className={classes.submitButton} type="submit" value={'Save'} />
           </form>
         </>
       )}
@@ -381,7 +359,7 @@ const ProfileWindow = () => {
                 </p>
               )}
             </label>
-            <input className={submitButtonClasses.join(' ')} type="submit" value={'Login'} disabled={isDisabled} />
+            <input className={classes.submitButton} type="submit" value={'Login'} />
           </form>
           <p className={classes.questionText} style={{ marginTop: '10px' }}>
             {`Don't have an account?`} <Link to={'/sign-up'}>Sign up</Link>.
