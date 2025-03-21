@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useRegisterUserMutation, useLogInUserMutation, useUpdateUserMutation } from '../../AppAPI';
 import { stringifyWithFirstCapitalLetter } from '../../../supportFunctions.js';
 import store from '../../redux/store';
-import { setUserData } from '../../redux/toolkitSlice.js';
+import * as actions from '../../redux/actions.js';
 
 import classes from './ProfileWindow.module.scss';
 
@@ -35,14 +35,14 @@ const ProfileWindow = () => {
       navigate('/sign-in');
     }
     if (updateResult?.isSuccess === true && pathname === '/profile') {
-      store.dispatch(setUserData(updateResult?.data?.user));
+      store.dispatch(actions.SET_USER_DATA(updateResult?.data?.user));
       window.localStorage.setItem('token', updateResult?.data?.user?.token);
       window.localStorage.setItem('username', updateResult?.data?.user?.username);
       updateResult.reset();
       navigate('/');
     }
     if (logInResult?.isSuccess === true && pathname === '/sign-in') {
-      store.dispatch(setUserData(logInResult?.data?.user));
+      store.dispatch(actions.SET_USER_DATA(logInResult?.data?.user));
       window.localStorage.setItem('token', logInResult?.data?.user?.token);
       window.localStorage.setItem('username', logInResult?.data?.user?.username);
       window.localStorage.setItem('image', logInResult?.data?.user?.image);
@@ -121,6 +121,7 @@ const ProfileWindow = () => {
 
   return (
     <div className={classes.contentBox}>
+      <h1>{isLoggingIn} request</h1>
       {FORM_TYPE === '/sign-up' && (
         <>
           <h2>Create new account</h2>

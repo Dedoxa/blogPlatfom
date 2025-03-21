@@ -1,4 +1,19 @@
 // import toExcluded from './supportFunctions';
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+  ArticlesData: [],
+  amountOfArticles: 0,
+  currentPage: 1,
+  logInUserData: {},
+  tagInputs: [],
+  modalIsVisible: false,
+};
+
+export const toolkitSlice = createSlice({
+  name: 'toolkit',
+  initialState,
+})
 
 export const setArticlesData = (state = [], action) => {
   switch (action.type) {

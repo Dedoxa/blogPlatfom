@@ -183,7 +183,7 @@ const ArticleForm = () => {
               <span
                 className={classes.fullArticleRedButton}
                 onClick={() => {
-                  store.dispatch(deleteTagInput([array, input]));
+                  store.dispatch(deleteTagInput([input, array]));
                 }}
               >
                 Delete

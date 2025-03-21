@@ -7,11 +7,11 @@ import { setUserData } from '../../redux/toolkitSlice';
 import classes from './Header.module.scss';
 
 const Header = () => {
-  let userToken = useSelector((state) => state.toolkit.logInUserData?.token);
+  let userToken = useSelector((state) => state.logInUserData?.token);
   if (!userToken) userToken = window.localStorage.getItem('token');
-  let userName = useSelector((state) => state.toolkit.logInUserData?.username);
+  let userName = useSelector((state) => state.logInUserData?.username);
   if (!userName) userName = window.localStorage.getItem('username');
-  let image = useSelector((state) => state.toolkit.logInUserData?.image);
+  let image = useSelector((state) => state.logInUserData?.image);
   if (!image) image = window.localStorage.getItem('image');
   if (image === 'undefined') image = '../../../public/img/defaultImage.jpg';
 

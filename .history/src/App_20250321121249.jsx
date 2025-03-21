@@ -16,7 +16,7 @@ import { setArticlesData, setAmountOfArticles } from './redux/toolkitSlice.js';
 function App() {
   const currentPage = useSelector((state) => state.toolkit.currentPage);
 
-  let userToken = useSelector((state) => state.toolkit.logInUserData?.token);
+  let userToken = useSelector((state) => state.logInUserData?.token);
   if (!userToken) userToken = window.localStorage.getItem('token');
 
   const {

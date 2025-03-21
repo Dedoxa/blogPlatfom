@@ -10,7 +10,7 @@ import { addTagInput, deleteTagInput, clearTagInput } from '../../redux/toolkitS
 import classes from './ArticleForm.module.scss';
 
 const ArticleForm = () => {
-  let userName = useSelector((state) => state.toolkit.logInUserData?.username);
+  let userName = useSelector((state) => state.logInUserData?.username);
   if (!userName) userName = window.localStorage.getItem('username');
   const { pathname } = useLocation();
   const { slug } = useParams();
@@ -27,7 +27,7 @@ const ArticleForm = () => {
   const [updateArticle, updateArticleResult] = useUpdateArticleMutation();
   const isUpdatingArticle = updateArticleResult.isLoading;
 
-  const tagInputs = useSelector((state) => state.toolkit.tagInputs);
+  const tagInputs = useSelector((state) => state.tagInputs);
   const location = useLocation();
   const articlePathName = location.state;
   const { data: result } = useGetParticularArticleQuery(articlePathName);
@@ -183,7 +183,7 @@ const ArticleForm = () => {
               <span
                 className={classes.fullArticleRedButton}
                 onClick={() => {
-                  store.dispatch(deleteTagInput([array, input]));
+                  store.dispatch(deleteTagInput(input, array));
                 }}
               >
                 Delete

@@ -7,13 +7,12 @@ import toolkitReducer from './toolkitSlice';
 const store = configureStore({
   reducer: {
     [realBlogPlatform.reducerPath]: realBlogPlatform.reducer,
-    toolkit: toolkitReducer,
-    // ArticlesData: setArticlesData,
-    // amountOfArticles: setAmountOfArticles,
-    // currentPage: setNewCurrentPage,
-    // logInUserData: setUserData,
-    // tagInputs: updateTagInputs,
-    // modalIsVisible: setModalVisibility,
+    ArticlesData: setArticlesData,
+    amountOfArticles: setAmountOfArticles,
+    currentPage: setNewCurrentPage,
+    logInUserData: setUserData,
+    tagInputs: updateTagInputs,
+    modalIsVisible: setModalVisibility,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(realBlogPlatform.middleware),
 });

@@ -121,6 +121,7 @@ const ProfileWindow = () => {
 
   return (
     <div className={classes.contentBox}>
+      <h1>{isLoggingIn} request</h1>
       {FORM_TYPE === '/sign-up' && (
         <>
           <h2>Create new account</h2>

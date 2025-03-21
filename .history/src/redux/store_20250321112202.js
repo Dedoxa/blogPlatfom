@@ -6,8 +6,8 @@ import toolkitReducer from './toolkitSlice';
 
 const store = configureStore({
   reducer: {
-    [realBlogPlatform.reducerPath]: realBlogPlatform.reducer,
-    toolkit: toolkitReducer,
+    toolkit: 
+    // [realBlogPlatform.reducerPath]: realBlogPlatform.reducer,
     // ArticlesData: setArticlesData,
     // amountOfArticles: setAmountOfArticles,
     // currentPage: setNewCurrentPage,

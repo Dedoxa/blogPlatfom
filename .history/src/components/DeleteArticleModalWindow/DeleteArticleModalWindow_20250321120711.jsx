@@ -8,7 +8,7 @@ import { hideModal } from '../../redux/toolkitSlice.js';
 import classes from './DeleteArticleModalWindow.module.scss';
 
 const DeleteArticleModalWindow = () => {
-  let userToken = useSelector((state) => state.toolkit.logInUserData?.token);
+  let userToken = useSelector((state) => state.logInUserData?.token);
   if (!userToken) userToken = window.localStorage.getItem('token');
 
   const { pathname } = useLocation();

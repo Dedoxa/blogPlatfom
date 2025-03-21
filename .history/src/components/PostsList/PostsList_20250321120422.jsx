@@ -8,9 +8,9 @@ import store from '../../redux/store.js';
 import { setNewCurrentPage } from '../../redux/toolkitSlice.js';
 
 const PostsList = () => {
-  const stateArticles = useSelector((state) => state.toolkit.ArticlesData);
-  const amountOfArticles = useSelector((state) => state.toolkit.amountOfArticles);
-  const currentPage = useSelector((state) => state.toolkit.currentPage);
+  const stateArticles = useSelector((state) => state.ArticlesData);
+  const amountOfArticles = useSelector((state) => state.amountOfArticles);
+  const currentPage = useSelector((state) => state.currentPage);
 
   return (
     <>

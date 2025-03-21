@@ -19,11 +19,11 @@ const FullArticle = () => {
   const article = result?.article;
   const formattedCreatedAt = article ? format(article?.createdAt, 'MMMM dd, y') : article?.createdAt;
 
-  let userToken = useSelector((state) => state.toolkit.logInUserData?.token);
+  let userToken = useSelector((state) => state.logInUserData?.token);
   if (!userToken) userToken = window.localStorage.getItem('token');
-  let userName = useSelector((state) => state.toolkit.logInUserData?.username);
+  let userName = useSelector((state) => state.logInUserData?.username);
   if (!userName) userName = window.localStorage.getItem('username');
-  const modalIsVisible = useSelector((state) => state.toolkit.modalIsVisible);
+  const modalIsVisible = useSelector((state) => state.modalIsVisible);
 
   const likeSymbol = article?.favorited ? 'RedLikeSymbol.svg' : 'LikeSymbol.svg';
 
