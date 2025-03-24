@@ -12,8 +12,8 @@ const Header = () => {
   let userName = useSelector((state) => state.toolkit.logInUserData?.username);
   if (!userName) userName = window.localStorage.getItem('username');
   let image = useSelector((state) => state.toolkit.logInUserData?.image);
-  if (!image) image = window.localStorage.getItem('image');
-  if (image === 'undefined') image = '../../../img/defaultImage.jpg';
+  // if (!image) image = window.localStorage.getItem('image');
+  if (!image) image = '../../../img/defaultImage.jpg';
 
   const navigate = useNavigate();
 
