@@ -38,7 +38,7 @@ const ProfileWindow = () => {
       store.dispatch(setUserData(updateResult?.data?.user));
       window.localStorage.setItem('token', updateResult?.data?.user?.token);
       window.localStorage.setItem('username', updateResult?.data?.user?.username);
-      window.localStorage.setItem('image', updateResult?.data?.user?.image);
+      window.localStorage.setItem('image', logInResult?.data?.user?.image);
       updateResult.reset();
       navigate('/');
     }
